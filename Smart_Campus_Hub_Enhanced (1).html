@@ -1,0 +1,2723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Campus Hub</title>
+
+<style>
+/* =========================
+   SMART CAMPUS HUB
+   SINGLE FILE PROJECT
+   HTML + CSS + JAVASCRIPT
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f7fb;
+    color:#1f2937;
+    transition:0.3s;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    height:70px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 5%;
+    box-shadow:0 2px 15px rgba(0,0,0,0.08);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:#4f46e5;
+}
+
+nav{
+    display:flex;
+    gap:20px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#374151;
+    font-weight:600;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:#4f46e5;
+}
+
+.header-buttons{
+    display:flex;
+    gap:8px;
+}
+
+.icon-btn{
+    border:none;
+    background:#eef2ff;
+    padding:10px 13px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:520px;
+    padding:70px 8%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    color:white;
+}
+
+.hero-content{
+    max-width:650px;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#fde68a;
+}
+
+.hero p{
+    font-size:20px;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:none;
+    padding:13px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    text-decoration:none;
+    display:inline-block;
+}
+
+.primary{
+    background:white;
+    color:#4f46e5;
+}
+
+.secondary{
+    background:rgba(255,255,255,0.15);
+    color:white;
+    border:1px solid rgba(255,255,255,0.4);
+}
+
+.hero-card{
+    width:350px;
+    padding:30px;
+    background:rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+}
+
+.hero-card h3{
+    margin-bottom:20px;
+}
+
+.hero-stat{
+    display:flex;
+    justify-content:space-between;
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,0.2);
+}
+
+/* ================= GENERAL ================= */
+
+.section{
+    padding:70px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#6b7280;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+}
+
+/* ================= DASHBOARD ================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.stat-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+}
+
+.stat-icon{
+    font-size:30px;
+}
+
+.stat-card h3{
+    font-size:30px;
+    margin:10px 0;
+    color:#4f46e5;
+}
+
+.stat-card p{
+    color:#6b7280;
+}
+
+/* ================= MODULE CARDS ================= */
+
+.modules{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.module-card{
+    background:white;
+    padding:30px 20px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+    transition:0.3s;
+}
+
+.module-card:hover{
+    transform:translateY(-7px);
+}
+
+.module-icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.module-card h3{
+    margin-bottom:10px;
+}
+
+.module-card p{
+    color:#6b7280;
+    font-size:14px;
+    line-height:1.5;
+}
+
+/* ================= FORM ================= */
+
+.form-box{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+    margin-bottom:25px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    outline:none;
+    font-size:14px;
+    background:white;
+}
+
+textarea{
+    resize:vertical;
+    min-height:100px;
+}
+
+input:focus,select:focus,textarea:focus{
+    border-color:#4f46e5;
+}
+
+/* ================= BUTTONS ================= */
+
+.action-btn{
+    border:none;
+    padding:10px 15px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-top:12px;
+}
+
+.add-btn{
+    background:#4f46e5;
+    color:white;
+}
+
+.delete-btn{
+    background:#ef4444;
+    color:white;
+    margin-left:5px;
+}
+
+.complete-btn{
+    background:#10b981;
+    color:white;
+}
+
+/* ================= SEARCH ================= */
+
+.search-box{
+    margin-bottom:20px;
+}
+
+.search-box input{
+    max-width:500px;
+}
+
+/* ================= LIST ================= */
+
+.list{
+    display:grid;
+    gap:15px;
+}
+
+.list-card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+}
+
+.list-card h3{
+    margin-bottom:8px;
+}
+
+.list-card p{
+    color:#6b7280;
+    margin:5px 0;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    background:#eef2ff;
+    color:#4f46e5;
+}
+
+/* ================= SMART MATCH ================= */
+
+.match-box{
+    background:linear-gradient(135deg,#eef2ff,#f5f3ff);
+    border:1px solid #ddd6fe;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+.match-box h3{
+    color:#4f46e5;
+    margin-bottom:8px;
+}
+
+/* ================= PROFILE ================= */
+
+.profile{
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:25px;
+}
+
+.profile-card,
+.profile-info{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+}
+
+.profile-card{
+    text-align:center;
+}
+
+.avatar{
+    width:100px;
+    height:100px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    background:#4f46e5;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+}
+
+.profile-info h3{
+    margin-bottom:20px;
+}
+
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress-container{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+    margin-bottom:25px;
+}
+
+.progress-bg{
+    width:100%;
+    height:18px;
+    background:#e5e7eb;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:12px;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:#4f46e5;
+    transition:0.5s;
+}
+
+/* ================= LOGIN ================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    z-index:3000;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    background:white;
+    width:100%;
+    max-width:450px;
+    padding:30px;
+    border-radius:15px;
+    position:relative;
+}
+
+.modal-box h2{
+    margin-bottom:20px;
+}
+
+.close{
+    position:absolute;
+    right:20px;
+    top:15px;
+    border:none;
+    background:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.modal-box input{
+    margin-bottom:12px;
+}
+
+.switch-text{
+    text-align:center;
+    margin-top:15px;
+    color:#6b7280;
+}
+
+.switch-text span{
+    color:#4f46e5;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* ================= NOTIFICATION ================= */
+
+.notification{
+    position:fixed;
+    right:20px;
+    top:85px;
+    background:#111827;
+    color:white;
+    padding:15px 20px;
+    border-radius:8px;
+    display:none;
+    z-index:4000;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.notification.show{
+    display:block;
+    animation:slideIn 0.3s ease;
+}
+
+@keyframes slideIn{
+    from{
+        transform:translateX(100px);
+        opacity:0;
+    }
+    to{
+        transform:translateX(0);
+        opacity:1;
+    }
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:45px 20px;
+}
+
+footer h2{
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#9ca3af;
+    margin:8px 0;
+}
+
+/* ================= DARK MODE ================= */
+
+body.dark{
+    background:#111827;
+    color:#f9fafb;
+}
+
+body.dark header,
+body.dark .stat-card,
+body.dark .module-card,
+body.dark .form-box,
+body.dark .list-card,
+body.dark .profile-card,
+body.dark .profile-info,
+body.dark .progress-container,
+body.dark .modal-box{
+    background:#1f2937;
+    color:#f9fafb;
+}
+
+body.dark nav a{
+    color:#e5e7eb;
+}
+
+body.dark .section-title p,
+body.dark .module-card p,
+body.dark .list-card p,
+body.dark .stat-card p{
+    color:#9ca3af;
+}
+
+body.dark input,
+body.dark select,
+body.dark textarea{
+    background:#374151;
+    color:white;
+    border-color:#4b5563;
+}
+
+body.dark .progress-bg{
+    background:#374151;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    nav{
+        display:none;
+    }
+
+    .hero{
+        flex-direction:column;
+        gap:40px;
+        text-align:center;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero-card{
+        width:100%;
+        max-width:400px;
+    }
+
+    .stats,
+    .modules{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .profile{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .section{
+        padding:50px 5%;
+    }
+
+    .stats,
+    .modules,
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding:60px 5%;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    .section-title h2{
+        font-size:28px;
+    }
+}
+
+/* ================= ENHANCED FEATURES ================= */
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.feature-card{background:white;padding:25px;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.06)}
+.feature-card h3{margin-bottom:12px}
+.feature-card p{color:#6b7280;line-height:1.5}
+.image-preview{max-width:180px;max-height:140px;border-radius:10px;margin-top:10px;display:none;object-fit:cover}
+.photo-thumb{width:90px;height:70px;object-fit:cover;border-radius:8px;margin:8px 0}
+.favorite-btn{background:#fff7ed;color:#ea580c;border:none;padding:9px 12px;border-radius:7px;cursor:pointer;margin-top:12px}
+body.dark .feature-card{background:#1f2937;color:#f9fafb}
+body.dark .feature-card p{color:#9ca3af}
+body.dark .favorite-btn{background:#374151;color:#fdba74}
+.notice-panel{position:fixed;right:20px;top:85px;width:320px;max-height:420px;overflow:auto;background:white;color:#1f2937;border-radius:14px;padding:18px;box-shadow:0 10px 35px rgba(0,0,0,.2);z-index:3500;display:none}
+.notice-panel.show{display:block}
+.notice-item{padding:10px;border-bottom:1px solid #e5e7eb;font-size:14px}
+.chat-box{height:230px;overflow:auto;background:#f3f4f6;padding:12px;border-radius:10px;margin-bottom:12px}
+.chat-msg{background:white;padding:9px 12px;border-radius:10px;margin:7px 0;max-width:85%}
+.chat-msg.me{margin-left:auto;background:#eef2ff}
+body.dark .chat-box{background:#111827}
+body.dark .chat-msg{background:#374151}
+.admin-danger{background:#dc2626;color:white}
+.admin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:15px 0}
+.admin-stat{padding:15px;background:#f3f4f6;border-radius:10px;text-align:center}
+body.dark .admin-stat{background:#374151}
+@media(max-width:700px){.feature-grid,.admin-grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        🎓 Smart Campus Hub
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#lost">Lost & Found</a>
+        <a href="#skills">Skills</a>
+        <a href="#planner">Planner</a>
+        <a href="#sharing">Sharing</a>
+        <a href="#profile">Profile</a>
+        <a href="#extras">More</a>
+    </nav>
+
+    <div class="header-buttons">
+        <button class="icon-btn" onclick="toggleNotifications()" title="Notifications">🔔</button>
+        <button class="icon-btn" onclick="toggleTheme()" title="Dark Mode">🌙</button>
+        <button class="icon-btn" onclick="openLogin()" title="Student Login">👤</button>
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            Smart Campus <span>Hub</span>
+        </h1>
+
+        <p>
+            One smart website for student life.
+            Connect with students, find lost items,
+            exchange skills, manage studies and share
+            useful campus resources.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#dashboard" class="btn primary">
+                Explore Dashboard
+            </a>
+
+            <button class="btn secondary" onclick="openLogin()">
+                Student Login
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+        <h3>📊 Campus Overview</h3>
+
+        <div class="hero-stat">
+            <span>Lost Items</span>
+            <strong id="heroLost">0</strong>
+        </div>
+
+        <div class="hero-stat">
+            <span>Skills</span>
+            <strong id="heroSkills">0</strong>
+        </div>
+
+        <div class="hero-stat">
+            <span>Study Tasks</span>
+            <strong id="heroTasks">0</strong>
+        </div>
+
+        <div class="hero-stat">
+            <span>Shared Items</span>
+            <strong id="heroSharing">0</strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section class="section" id="dashboard">
+
+    <div class="section-title">
+
+        <h2>📊 Student Dashboard</h2>
+
+        <p>
+            Everything you need for your campus life.
+        </p>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <div class="stat-icon">🔎</div>
+            <h3 id="lostCount">0</h3>
+            <p>Lost & Found Posts</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🤝</div>
+            <h3 id="skillCount">0</h3>
+            <p>Skill Profiles</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">📚</div>
+            <h3 id="taskCount">0</h3>
+            <p>Study Tasks</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">♻️</div>
+            <h3 id="sharingCount">0</h3>
+            <p>Shared Items</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MODULES ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>🚀 Campus Modules</h2>
+
+        <p>
+            Useful tools designed for students.
+        </p>
+
+    </div>
+
+
+    <div class="modules">
+
+        <div class="module-card">
+            <div class="module-icon">🔎</div>
+            <h3>Lost & Found</h3>
+            <p>
+                Report lost items and help other
+                students find their belongings.
+            </p>
+        </div>
+
+
+        <div class="module-card">
+            <div class="module-icon">🤝</div>
+            <h3>Skill Exchange</h3>
+            <p>
+                Teach your skills and learn something
+                new from another student.
+            </p>
+        </div>
+
+
+        <div class="module-card">
+            <div class="module-icon">📚</div>
+            <h3>Study Planner</h3>
+            <p>
+                Organize assignments, exams and
+                daily study tasks.
+            </p>
+        </div>
+
+
+        <div class="module-card">
+            <div class="module-icon">♻️</div>
+            <h3>Campus Sharing</h3>
+            <p>
+                Share, borrow or exchange useful
+                books and college items.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= LOST & FOUND ================= -->
+
+<section class="section" id="lost">
+
+    <div class="section-title">
+
+        <h2>🔎 Lost & Found</h2>
+
+        <p>
+            Help students find their lost belongings.
+        </p>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="form-box">
+
+            <div class="form-grid">
+
+                <input
+                    type="text"
+                    id="lostItem"
+                    placeholder="Item name e.g. Black Wallet"
+                >
+
+                <select id="lostType">
+
+                    <option value="Lost">
+                        I Lost This
+                    </option>
+
+                    <option value="Found">
+                        I Found This
+                    </option>
+
+                </select>
+
+                <input
+                    type="text"
+                    id="lostLocation"
+                    placeholder="Location e.g. Library"
+                >
+
+                <input
+                    type="text"
+                    id="lostDescription"
+                    placeholder="Short description"
+                >
+                <input
+                    type="file"
+                    id="lostImage"
+                    accept="image/*"
+                    onchange="previewLostImage(event)"
+                >
+                <img id="lostImagePreview" class="image-preview" alt="Preview">
+
+
+            </div>
+
+            <button
+                class="action-btn add-btn"
+                onclick="addLostItem()"
+            >
+                + Post Item
+            </button>
+
+        </div>
+
+
+        <!-- SMART MATCH -->
+
+        <div class="match-box">
+
+            <h3>🧠 Smart Match</h3>
+
+            <p>
+                The system checks item names and locations
+                to find possible Lost & Found matches.
+            </p>
+
+            <button
+                class="action-btn add-btn"
+                onclick="findMatches()"
+            >
+                Find Possible Matches
+            </button>
+
+            <div id="matchResults"></div>
+
+        </div>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="lostSearch"
+                placeholder="🔍 Search lost/found items..."
+                oninput="displayLostItems()"
+            >
+
+        </div>
+
+
+        <div id="lostList" class="list"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section class="section" id="skills">
+
+    <div class="section-title">
+
+        <h2>🤝 Skill Exchange</h2>
+
+        <p>
+            Learn from students and share your own skills.
+        </p>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="form-box">
+
+            <div class="form-grid">
+
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Your name"
+                >
+
+                <input
+                    type="text"
+                    id="teachSkill"
+                    placeholder="Skill you can teach"
+                >
+
+                <input
+                    type="text"
+                    id="learnSkill"
+                    placeholder="Skill you want to learn"
+                >
+
+                <input
+                    type="text"
+                    id="skillContact"
+                    placeholder="Contact / Email"
+                >
+
+            </div>
+
+            <button
+                class="action-btn add-btn"
+                onclick="addSkill()"
+            >
+                + Add Skill Profile
+            </button>
+
+        </div>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="skillSearch"
+                placeholder="🔍 Search skills..."
+                oninput="displaySkills()"
+            >
+
+        </div>
+
+
+        <div id="skillList" class="list"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STUDY PLANNER ================= -->
+
+<section class="section" id="planner">
+
+    <div class="section-title">
+
+        <h2>📚 Study Planner</h2>
+
+        <p>
+            Manage your assignments and study tasks.
+        </p>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="progress-container">
+
+            <strong>Study Progress</strong>
+
+            <div class="progress-bg">
+                <div
+                    class="progress-bar"
+                    id="progressBar"
+                ></div>
+            </div>
+
+            <p
+                id="progressText"
+                style="margin-top:10px;"
+            >
+                0% Completed
+            </p>
+
+        </div>
+
+
+        <div class="form-box">
+
+            <div class="form-grid">
+
+                <input
+                    type="text"
+                    id="taskName"
+                    placeholder="Task / Assignment name"
+                >
+
+                <input
+                    type="date"
+                    id="taskDate"
+                >
+
+            </div>
+
+            <button
+                class="action-btn add-btn"
+                onclick="addTask()"
+            >
+                + Add Study Task
+            </button>
+
+        </div>
+
+
+        <div id="taskList" class="list"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CAMPUS SHARING ================= -->
+
+<section class="section" id="sharing">
+
+    <div class="section-title">
+
+        <h2>♻️ Campus Sharing</h2>
+
+        <p>
+            Share, borrow or exchange useful campus items.
+        </p>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="form-box">
+
+            <div class="form-grid">
+
+                <input
+                    type="text"
+                    id="shareItem"
+                    placeholder="Item name e.g. BCA Book"
+                >
+
+                <select id="shareType">
+
+                    <option value="Give Away">
+                        Give Away
+                    </option>
+
+                    <option value="Borrow">
+                        Borrow
+                    </option>
+
+                    <option value="Exchange">
+                        Exchange
+                    </option>
+
+                </select>
+
+                <input
+                    type="text"
+                    id="shareCondition"
+                    placeholder="Condition e.g. Good"
+                >
+
+                <input
+                    type="text"
+                    id="shareContact"
+                    placeholder="Contact"
+                >
+
+            </div>
+
+            <button
+                class="action-btn add-btn"
+                onclick="addSharing()"
+            >
+                + Post Sharing Item
+            </button>
+
+        </div>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="shareSearch"
+                placeholder="🔍 Search shared items..."
+                oninput="displaySharing()"
+            >
+
+        </div>
+
+
+        <div id="sharingList" class="list"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section class="section" id="profile">
+
+    <div class="section-title">
+
+        <h2>👤 Student Profile</h2>
+
+        <p>
+            Your Smart Campus Hub profile.
+        </p>
+
+    </div>
+
+
+    <div class="container profile">
+
+        <div class="profile-card">
+
+            <div class="avatar" id="avatar">
+                👤
+            </div>
+
+            <h2 id="profileName">
+                Student
+            </h2>
+
+            <p id="profileEmail">
+                student@example.com
+            </p>
+
+            <button
+                class="action-btn add-btn"
+                onclick="openLogin()"
+            >
+                Edit Profile
+            </button>
+
+        </div>
+
+
+        <div class="profile-info">
+
+            <h3>📋 Student Information</h3>
+
+            <div class="info-row">
+                <span>Course</span>
+                <strong>BCA</strong>
+            </div>
+
+            <div class="info-row">
+                <span>Department</span>
+                <strong>Computer Applications</strong>
+            </div>
+
+            <div class="info-row">
+                <span>Campus Posts</span>
+                <strong id="profilePosts">0</strong>
+            </div>
+
+            <div class="info-row">
+                <span>Study Tasks</span>
+                <strong id="profileTasks">0</strong>
+            </div>
+
+            <div class="info-row">
+                <span>Completed Tasks</span>
+                <strong id="profileCompleted">0</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= LOGIN MODAL ================= -->
+
+<div class="modal" id="loginModal">
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeLogin()"
+        >
+            ×
+        </button>
+
+        <h2 id="modalTitle">
+            🔐 Student Login
+        </h2>
+
+        <input
+            type="text"
+            id="loginName"
+            placeholder="Enter your name"
+        >
+
+        <input
+            type="email"
+            id="loginEmail"
+            placeholder="Enter your email"
+        >
+
+        <input
+            type="password"
+            id="loginPassword"
+            placeholder="Enter password"
+        >
+
+        <button
+            class="action-btn add-btn"
+            style="width:100%;"
+            onclick="loginUser()"
+        >
+            Login / Register
+        </button>
+
+        <div class="switch-text">
+            Demo login — no real password/database required.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= NOTIFICATION ================= -->
+
+<div
+    class="notification"
+    id="notification"
+>
+    Success!
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+
+<!-- ================= ENHANCED FEATURES ================= -->
+<section class="section" id="extras">
+    <div class="section-title">
+        <h2>✨ More Smart Features</h2>
+        <p>Extra tools to make Smart Campus Hub more useful.</p>
+    </div>
+
+    <div class="container feature-grid">
+
+        <div class="feature-card">
+            <h3>❤️ Favourite Posts</h3>
+            <p>Save important Lost & Found, Skill and Sharing posts for quick access.</p>
+            <button class="action-btn add-btn" onclick="showFavorites()">View My Favourites</button>
+            <div id="favoriteList" class="list" style="margin-top:15px;"></div>
+        </div>
+
+        <div class="feature-card">
+            <h3>🔎 Advanced Search</h3>
+            <p>Search all campus sections at once.</p>
+            <input id="globalSearch" type="text" placeholder="Search item, skill, task or shared item..." oninput="globalSearchAll()">
+            <div id="globalResults" class="list" style="margin-top:15px;"></div>
+        </div>
+
+        <div class="feature-card">
+            <h3>💬 Campus Chat</h3>
+            <div id="chatBox" class="chat-box"></div>
+            <div style="display:flex;gap:8px;">
+                <input id="chatInput" type="text" placeholder="Write a message..." onkeydown="if(event.key==='Enter')sendChat()">
+                <button class="action-btn add-btn" onclick="sendChat()">Send</button>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <h3>📍 My Location</h3>
+            <p>Use your browser location to demonstrate location-based campus features.</p>
+            <button class="action-btn add-btn" onclick="getMyLocation()">Get My Location</button>
+            <p id="locationResult" style="margin-top:12px;">Location not requested.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>📧 Smart Alerts</h3>
+            <p>Demo alerts for Smart Match, study deadlines and new campus activity.</p>
+            <button class="action-btn add-btn" onclick="runSmartAlerts()">Check Smart Alerts</button>
+            <div id="alertResults" style="margin-top:15px;"></div>
+        </div>
+
+        <div class="feature-card">
+            <h3>🛡️ Admin Panel</h3>
+            <p>Demo administrator controls for viewing statistics and clearing local demo data.</p>
+            <button class="action-btn add-btn" onclick="openAdmin()">Open Admin Panel</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ADMIN MODAL -->
+<div class="modal" id="adminModal">
+    <div class="modal-box">
+        <button class="close" onclick="closeAdmin()">×</button>
+        <h2>🛡️ Admin Panel</h2>
+        <p>Demo panel for this front-end project.</p>
+        <div class="admin-grid">
+            <div class="admin-stat"><strong id="adminLost">0</strong><br>Lost Posts</div>
+            <div class="admin-stat"><strong id="adminSkills">0</strong><br>Skills</div>
+            <div class="admin-stat"><strong id="adminTasks">0</strong><br>Tasks</div>
+            <div class="admin-stat"><strong id="adminSharing">0</strong><br>Sharing</div>
+        </div>
+        <button class="action-btn admin-danger" onclick="clearAllDemoData()">Delete All Local Demo Data</button>
+        <p style="margin-top:12px;color:#6b7280;">This affects only this browser's LocalStorage data.</p>
+    </div>
+</div>
+
+<div id="noticePanel" class="notice-panel">
+    <h3>🔔 Notifications</h3>
+    <div id="noticeList" style="margin-top:10px;"></div>
+</div>
+
+<footer>
+
+    <h2>🎓 Smart Campus Hub</h2>
+
+    <p>
+        One Website for Student Life
+    </p>
+
+    <p>
+        HTML • CSS • JavaScript
+    </p>
+
+    <p>
+        © 2026 Smart Campus Hub | BCA Project
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   SMART CAMPUS HUB
+   JAVASCRIPT
+===================================================== */
+
+
+/* ================= DATA ================= */
+
+let lostItems =
+    JSON.parse(localStorage.getItem("lostItems")) || [];
+
+let skills =
+    JSON.parse(localStorage.getItem("skills")) || [];
+
+let tasks =
+    JSON.parse(localStorage.getItem("tasks")) || [];
+
+let sharing =
+    JSON.parse(localStorage.getItem("sharing")) || [];
+
+
+/* ================= NOTIFICATION ================= */
+
+function notify(message){
+
+    const box =
+        document.getElementById("notification");
+
+    box.innerText = message;
+
+    box.classList.add("show");
+
+    setTimeout(function(){
+
+        box.classList.remove("show");
+
+    },2500);
+}
+
+
+/* ================= DARK MODE ================= */
+
+function toggleTheme(){
+
+    document.body.classList.toggle("dark");
+
+    const dark =
+        document.body.classList.contains("dark");
+
+    localStorage.setItem("darkMode",dark);
+
+    notify(
+        dark
+        ? "🌙 Dark mode enabled"
+        : "☀️ Light mode enabled"
+    );
+}
+
+
+if(localStorage.getItem("darkMode")==="true"){
+
+    document.body.classList.add("dark");
+
+}
+
+
+/* ================= LOGIN ================= */
+
+function openLogin(){
+
+    document
+        .getElementById("loginModal")
+        .classList.add("active");
+
+}
+
+function closeLogin(){
+
+    document
+        .getElementById("loginModal")
+        .classList.remove("active");
+
+}
+
+
+function loginUser(){
+
+    const name =
+        document.getElementById("loginName").value.trim();
+
+    const email =
+        document.getElementById("loginEmail").value.trim();
+
+    const password =
+        document.getElementById("loginPassword").value.trim();
+
+
+    if(name==="" || email==="" || password===""){
+
+        notify("⚠️ Please fill all fields");
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "studentName",
+        name
+    );
+
+    localStorage.setItem(
+        "studentEmail",
+        email
+    );
+
+
+    updateProfile();
+
+    closeLogin();
+
+    notify("✅ Welcome "+name+"!");
+
+}
+
+
+/* ================= PROFILE ================= */
+
+function updateProfile(){
+
+    const name =
+        localStorage.getItem("studentName");
+
+    const email =
+        localStorage.getItem("studentEmail");
+
+
+    if(name){
+
+        document.getElementById(
+            "profileName"
+        ).innerText = name;
+
+        document.getElementById(
+            "avatar"
+        ).innerText =
+            name.charAt(0).toUpperCase();
+
+    }
+
+
+    if(email){
+
+        document.getElementById(
+            "profileEmail"
+        ).innerText = email;
+
+    }
+
+}
+
+
+updateProfile();
+
+
+/* =====================================================
+   LOST & FOUND
+===================================================== */
+
+
+function previewLostImage(event){
+    const img=document.getElementById("lostImagePreview");
+    const file=event.target.files[0];
+    if(!file){ img.style.display="none"; return; }
+    const reader=new FileReader();
+    reader.onload=function(e){
+        img.src=e.target.result;
+        img.style.display="block";
+    };
+    reader.readAsDataURL(file);
+}
+
+function addLostItem(){
+    const item=document.getElementById("lostItem").value.trim();
+    const type=document.getElementById("lostType").value;
+    const location=document.getElementById("lostLocation").value.trim();
+    const description=document.getElementById("lostDescription").value.trim();
+    const file=document.getElementById("lostImage").files[0];
+
+    if(item==="" || location===""){
+        notify("⚠️ Please enter item and location");
+        return;
+    }
+
+    const saveItem=function(image=""){
+        lostItems.push({
+            id:Date.now(),
+            item:item,
+            type:type,
+            location:location,
+            description:description,
+            image:image,
+            date:new Date().toLocaleDateString()
+        });
+
+        saveData();
+        displayLostItems();
+
+        clearFields(["lostItem","lostLocation","lostDescription"]);
+        document.getElementById("lostImage").value="";
+        document.getElementById("lostImagePreview").style.display="none";
+
+        addNotice("New " + type + " item posted: " + item);
+        notify("✅ Item posted successfully!");
+    };
+
+    if(file){
+        if(file.size > 1200000){
+            notify("⚠️ Image is too large. Please choose a smaller image.");
+            return;
+        }
+        const reader=new FileReader();
+        reader.onload=function(e){ saveItem(e.target.result); };
+        reader.readAsDataURL(file);
+    }else{
+        saveItem("");
+    }
+}
+
+function displayLostItems(){
+    const list=document.getElementById("lostList");
+    const search=document.getElementById("lostSearch").value.toLowerCase();
+    list.innerHTML="";
+
+    const filtered=lostItems.filter(function(x){
+        return(
+            x.item.toLowerCase().includes(search) ||
+            x.location.toLowerCase().includes(search) ||
+            x.type.toLowerCase().includes(search)
+        );
+    });
+
+    if(filtered.length===0){
+        list.innerHTML=`
+            <div class="list-card">
+                <h3>No items found</h3>
+                <p>Try another search or post a new item.</p>
+            </div>`;
+        return;
+    }
+
+    filtered.forEach(function(x){
+        const fav=isFavourite(x.id,"lost");
+        list.innerHTML += `
+            <div class="list-card">
+                <span class="badge">${escapeHTML(x.type)}</span>
+                <h3>${x.type==="Lost" ? "🔴" : "🟢"} ${escapeHTML(x.item)}</h3>
+                ${x.image ? `<img src="${x.image}" class="photo-thumb" alt="Item photo">` : ""}
+                <p>📍 Location: ${escapeHTML(x.location)}</p>
+                <p>📝 ${escapeHTML(x.description || "No description")}</p>
+                <p>📅 Posted: ${escapeHTML(x.date)}</p>
+                <button class="favorite-btn" onclick="toggleFavourite(${x.id},'lost')">
+                    ${fav ? "❤️ Saved" : "🤍 Favourite"}
+                </button>
+                <button class="action-btn delete-btn" onclick="deleteLost(${x.id})">Delete</button>
+            </div>`;
+    });
+}
+
+function deleteLost(id){
+
+    lostItems =
+        lostItems.filter(function(x){
+
+            return x.id!==id;
+
+        });
+
+    saveData();
+
+    displayLostItems();
+
+    notify("🗑️ Item deleted");
+
+}
+
+
+/* ================= SMART MATCH ================= */
+
+function findMatches(){
+
+    const result =
+        document.getElementById("matchResults");
+
+    result.innerHTML="";
+
+
+    let matches=[];
+
+
+    for(let i=0;i<lostItems.length;i++){
+
+        for(let j=i+1;j<lostItems.length;j++){
+
+            const a=lostItems[i];
+
+            const b=lostItems[j];
+
+
+            if(a.type===b.type){
+
+                continue;
+
+            }
+
+
+            const itemA =
+                a.item.toLowerCase();
+
+            const itemB =
+                b.item.toLowerCase();
+
+
+            const locationA =
+                a.location.toLowerCase();
+
+            const locationB =
+                b.location.toLowerCase();
+
+
+            if(
+                itemA.includes(itemB) ||
+                itemB.includes(itemA) ||
+                locationA===locationB
+            ){
+
+                matches.push({
+
+                    lost:a,
+
+                    found:b
+
+                });
+
+            }
+
+        }
+
+    }
+
+
+    if(matches.length===0){
+
+        result.innerHTML=`
+            <p style="margin-top:15px;">
+                🔍 No possible matches found yet.
+            </p>
+        `;
+
+        return;
+
+    }
+
+
+    matches.forEach(function(m){
+
+        result.innerHTML += `
+
+            <div class="list-card"
+                 style="margin-top:15px;">
+
+                <h3>
+                    🎯 Possible Match Found!
+                </h3>
+
+                <p>
+                    ${m.lost.type}:
+                    <strong>${escapeHTML(m.lost.item)}</strong>
+                </p>
+
+                <p>
+                    ${m.found.type}:
+                    <strong>${escapeHTML(m.found.item)}</strong>
+                </p>
+
+                <p>
+                    📍 Location:
+                    ${escapeHTML(m.lost.location)}
+                </p>
+
+            </div>
+
+        `;
+
+    });
+
+
+    notify(
+        "🧠 Smart matching completed"
+    );
+
+}
+
+
+/* =====================================================
+   SKILL EXCHANGE
+===================================================== */
+
+function addSkill(){
+
+    const name =
+        document.getElementById("studentName")
+        .value.trim();
+
+    const teach =
+        document.getElementById("teachSkill")
+        .value.trim();
+
+    const learn =
+        document.getElementById("learnSkill")
+        .value.trim();
+
+    const contact =
+        document.getElementById("skillContact")
+        .value.trim();
+
+
+    if(
+        name==="" ||
+        teach==="" ||
+        learn===""
+    ){
+
+        notify("⚠️ Please fill required fields");
+
+        return;
+
+    }
+
+
+    skills.push({
+
+        id:Date.now(),
+
+        name:name,
+
+        teach:teach,
+
+        learn:learn,
+
+        contact:contact
+
+    });
+
+
+    saveData();
+
+    displaySkills();
+
+
+    clearFields([
+        "studentName",
+        "teachSkill",
+        "learnSkill",
+        "skillContact"
+    ]);
+
+
+    notify(
+        "🤝 Skill profile added!"
+    );
+
+}
+
+
+
+function displaySkills(){
+    const list=document.getElementById("skillList");
+    const search=document.getElementById("skillSearch").value.toLowerCase();
+    list.innerHTML="";
+
+    const filtered=skills.filter(x=>
+        x.name.toLowerCase().includes(search) ||
+        x.teach.toLowerCase().includes(search) ||
+        x.learn.toLowerCase().includes(search)
+    );
+
+    if(filtered.length===0){
+        list.innerHTML=`<div class="list-card"><h3>No skill profiles found</h3><p>Add your skills to connect with students.</p></div>`;
+        return;
+    }
+
+    filtered.forEach(x=>{
+        const fav=isFavourite(x.id,"skill");
+        list.innerHTML+=`
+        <div class="list-card">
+            <h3>👤 ${escapeHTML(x.name)}</h3>
+            <p>🤝 Can teach: <strong>${escapeHTML(x.teach)}</strong></p>
+            <p>📚 Wants to learn: <strong>${escapeHTML(x.learn)}</strong></p>
+            <p>📞 Contact: ${escapeHTML(x.contact || "Not provided")}</p>
+            <button class="favorite-btn" onclick="toggleFavourite(${x.id},'skill')">${fav?"❤️ Saved":"🤍 Favourite"}</button>
+            <button class="action-btn delete-btn" onclick="deleteSkill(${x.id})">Delete</button>
+        </div>`;
+    });
+}
+
+function deleteSkill(id){
+
+    skills =
+        skills.filter(function(x){
+
+            return x.id!==id;
+
+        });
+
+
+    saveData();
+
+    displaySkills();
+
+    notify("🗑️ Skill profile deleted");
+
+}
+
+
+/* =====================================================
+   STUDY PLANNER
+===================================================== */
+
+function addTask(){
+
+    const task =
+        document.getElementById("taskName")
+        .value.trim();
+
+    const date =
+        document.getElementById("taskDate")
+        .value;
+
+
+    if(task==="" || date===""){
+
+        notify("⚠️ Enter task and date");
+
+        return;
+
+    }
+
+
+    tasks.push({
+
+        id:Date.now(),
+
+        task:task,
+
+        date:date,
+
+        completed:false
+
+    });
+
+
+    saveData();
+
+    displayTasks();
+
+
+    clearFields([
+        "taskName",
+        "taskDate"
+    ]);
+
+
+    notify("📚 Study task added!");
+
+}
+
+
+function displayTasks(){
+
+    const list =
+        document.getElementById("taskList");
+
+
+    list.innerHTML="";
+
+
+    if(tasks.length===0){
+
+        list.innerHTML=`
+
+            <div class="list-card">
+
+                <h3>No study tasks</h3>
+
+                <p>
+                    Add an assignment or study task.
+                </p>
+
+            </div>
+
+        `;
+
+        updateProgress();
+
+        return;
+
+    }
+
+
+    const sorted =
+        [...tasks].sort(function(a,b){
+
+            return new Date(a.date)-new Date(b.date);
+
+        });
+
+
+    sorted.forEach(function(x){
+
+        list.innerHTML += `
+
+            <div class="list-card"
+                 style="${
+                    x.completed
+                    ? "opacity:0.65;"
+                    : ""
+                 }">
+
+                <h3>
+
+                    ${
+                        x.completed
+                        ? "✅"
+                        : "📌"
+                    }
+
+                    ${
+                        escapeHTML(x.task)
+                    }
+
+                </h3>
+
+                <p>
+                    📅 Deadline:
+                    ${x.date}
+                </p>
+
+                <button
+                    class="action-btn complete-btn"
+                    onclick="completeTask(${x.id})"
+                >
+                    ${
+                        x.completed
+                        ? "Undo"
+                        : "Mark Complete"
+                    }
+                </button>
+
+                <button
+                    class="action-btn delete-btn"
+                    onclick="deleteTask(${x.id})"
+                >
+                    Delete
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+
+    updateProgress();
+
+}
+
+
+function completeTask(id){
+
+    tasks =
+        tasks.map(function(x){
+
+            if(x.id===id){
+
+                x.completed=!x.completed;
+
+            }
+
+            return x;
+
+        });
+
+
+    saveData();
+
+    displayTasks();
+
+    notify("✅ Task updated");
+
+}
+
+
+function deleteTask(id){
+
+    tasks =
+        tasks.filter(function(x){
+
+            return x.id!==id;
+
+        });
+
+
+    saveData();
+
+    displayTasks();
+
+    notify("🗑️ Task deleted");
+
+}
+
+
+function updateProgress(){
+
+    const total=tasks.length;
+
+    const completed =
+        tasks.filter(function(x){
+
+            return x.completed;
+
+        }).length;
+
+
+    const percentage =
+        total===0
+        ? 0
+        : Math.round(
+            (completed/total)*100
+        );
+
+
+    document.getElementById(
+        "progressBar"
+    ).style.width =
+        percentage+"%";
+
+
+    document.getElementById(
+        "progressText"
+    ).innerText =
+        percentage+"% Completed";
+
+}
+
+
+/* =====================================================
+   CAMPUS SHARING
+===================================================== */
+
+function addSharing(){
+
+    const item =
+        document.getElementById("shareItem")
+        .value.trim();
+
+    const type =
+        document.getElementById("shareType")
+        .value;
+
+    const condition =
+        document.getElementById("shareCondition")
+        .value.trim();
+
+    const contact =
+        document.getElementById("shareContact")
+        .value.trim();
+
+
+    if(item==="" || contact===""){
+
+        notify("⚠️ Enter item and contact");
+
+        return;
+
+    }
+
+
+    sharing.push({
+
+        id:Date.now(),
+
+        item:item,
+
+        type:type,
+
+        condition:condition,
+
+        contact:contact
+
+    });
+
+
+    saveData();
+
+    displaySharing();
+
+
+    clearFields([
+        "shareItem",
+        "shareCondition",
+        "shareContact"
+    ]);
+
+
+    notify("♻️ Sharing item posted!");
+
+}
+
+
+
+function displaySharing(){
+    const list=document.getElementById("sharingList");
+    const search=document.getElementById("shareSearch").value.toLowerCase();
+    list.innerHTML="";
+
+    const filtered=sharing.filter(x=>
+        x.item.toLowerCase().includes(search) ||
+        x.type.toLowerCase().includes(search)
+    );
+
+    if(filtered.length===0){
+        list.innerHTML=`<div class="list-card"><h3>No shared items found</h3><p>Post an item to share with students.</p></div>`;
+        return;
+    }
+
+    filtered.forEach(x=>{
+        const fav=isFavourite(x.id,"sharing");
+        list.innerHTML+=`
+        <div class="list-card">
+            <span class="badge">${escapeHTML(x.type)}</span>
+            <h3>♻️ ${escapeHTML(x.item)}</h3>
+            <p>✨ Condition: ${escapeHTML(x.condition || "Not specified")}</p>
+            <p>📞 Contact: ${escapeHTML(x.contact)}</p>
+            <button class="favorite-btn" onclick="toggleFavourite(${x.id},'sharing')">${fav?"❤️ Saved":"🤍 Favourite"}</button>
+            <button class="action-btn delete-btn" onclick="deleteSharing(${x.id})">Delete</button>
+        </div>`;
+    });
+}
+
+function deleteSharing(id){
+
+    sharing =
+        sharing.filter(function(x){
+
+            return x.id!==id;
+
+        });
+
+
+    saveData();
+
+    displaySharing();
+
+    notify("🗑️ Sharing post deleted");
+
+}
+
+
+/* =====================================================
+   SAVE DATA
+===================================================== */
+
+function saveData(){
+
+    localStorage.setItem(
+        "lostItems",
+        JSON.stringify(lostItems)
+    );
+
+    localStorage.setItem(
+        "skills",
+        JSON.stringify(skills)
+    );
+
+    localStorage.setItem(
+        "tasks",
+        JSON.stringify(tasks)
+    );
+
+    localStorage.setItem(
+        "sharing",
+        JSON.stringify(sharing)
+    );
+
+    updateDashboard();
+
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+function updateDashboard(){
+
+    document.getElementById(
+        "lostCount"
+    ).innerText=lostItems.length;
+
+    document.getElementById(
+        "skillCount"
+    ).innerText=skills.length;
+
+    document.getElementById(
+        "taskCount"
+    ).innerText=tasks.length;
+
+    document.getElementById(
+        "sharingCount"
+    ).innerText=sharing.length;
+
+
+    document.getElementById(
+        "heroLost"
+    ).innerText=lostItems.length;
+
+    document.getElementById(
+        "heroSkills"
+    ).innerText=skills.length;
+
+    document.getElementById(
+        "heroTasks"
+    ).innerText=tasks.length;
+
+    document.getElementById(
+        "heroSharing"
+    ).innerText=sharing.length;
+
+
+    const completed =
+        tasks.filter(function(x){
+
+            return x.completed;
+
+        }).length;
+
+
+    document.getElementById(
+        "profilePosts"
+    ).innerText =
+        lostItems.length+
+        skills.length+
+        sharing.length;
+
+
+    document.getElementById(
+        "profileTasks"
+    ).innerText =
+        tasks.length;
+
+
+    document.getElementById(
+        "profileCompleted"
+    ).innerText =
+        completed;
+
+}
+
+
+/* =====================================================
+   HELPER FUNCTIONS
+===================================================== */
+
+function clearFields(ids){
+
+    ids.forEach(function(id){
+
+        document.getElementById(id).value="";
+
+    });
+
+}
+
+
+function escapeHTML(text){
+
+    return String(text)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   START APPLICATION
+===================================================== */
+
+displayLostItems();
+
+displaySkills();
+
+displayTasks();
+
+displaySharing();
+
+updateDashboard();
+
+
+/* =====================================================
+   ENHANCED FEATURES
+===================================================== */
+
+let favourites=JSON.parse(localStorage.getItem("favourites")) || [];
+let campusChat=JSON.parse(localStorage.getItem("campusChat")) || [];
+let notifications=JSON.parse(localStorage.getItem("notifications")) || [];
+
+function addNotice(message){
+    notifications.unshift({
+        id:Date.now(),
+        message:message,
+        time:new Date().toLocaleString()
+    });
+    notifications=notifications.slice(0,30);
+    localStorage.setItem("notifications",JSON.stringify(notifications));
+    renderNotifications();
+}
+
+function renderNotifications(){
+    const box=document.getElementById("noticeList");
+    if(!box) return;
+    if(notifications.length===0){
+        box.innerHTML="<p>No notifications yet.</p>";
+        return;
+    }
+    box.innerHTML=notifications.map(n=>`
+        <div class="notice-item">
+            <strong>${escapeHTML(n.message)}</strong>
+            <br><small>${escapeHTML(n.time)}</small>
+        </div>
+    `).join("");
+}
+
+function toggleNotifications(){
+    document.getElementById("noticePanel").classList.toggle("show");
+    renderNotifications();
+}
+
+function isFavourite(id,type){
+    return favourites.some(x=>x.id===id && x.type===type);
+}
+
+function toggleFavourite(id,type){
+    const index=favourites.findIndex(x=>x.id===id && x.type===type);
+    if(index>=0){
+        favourites.splice(index,1);
+        notify("🤍 Removed from favourites");
+    }else{
+        favourites.push({id:id,type:type});
+        notify("❤️ Added to favourites");
+    }
+    localStorage.setItem("favourites",JSON.stringify(favourites));
+    displayLostItems();
+    displaySkills();
+    displaySharing();
+}
+
+function showFavorites(){
+    const box=document.getElementById("favoriteList");
+    box.innerHTML="";
+    const result=[];
+
+    favourites.forEach(f=>{
+        if(f.type==="lost"){
+            const x=lostItems.find(a=>a.id===f.id);
+            if(x) result.push(`<div class="list-card"><strong>🔎 ${escapeHTML(x.item)}</strong><p>${escapeHTML(x.type)} • ${escapeHTML(x.location)}</p></div>`);
+        }
+        if(f.type==="skill"){
+            const x=skills.find(a=>a.id===f.id);
+            if(x) result.push(`<div class="list-card"><strong>🤝 ${escapeHTML(x.teach)}</strong><p>${escapeHTML(x.name)}</p></div>`);
+        }
+        if(f.type==="sharing"){
+            const x=sharing.find(a=>a.id===f.id);
+            if(x) result.push(`<div class="list-card"><strong>♻️ ${escapeHTML(x.item)}</strong><p>${escapeHTML(x.type)}</p></div>`);
+        }
+    });
+
+    box.innerHTML=result.length ? result.join("") : `<div class="list-card"><p>No favourite posts yet.</p></div>`;
+}
+
+function globalSearchAll(){
+    const q=document.getElementById("globalSearch").value.toLowerCase().trim();
+    const box=document.getElementById("globalResults");
+    if(!q){
+        box.innerHTML="";
+        return;
+    }
+
+    let results=[];
+
+    lostItems.forEach(x=>{
+        if((x.item+" "+x.location+" "+x.type+" "+(x.description||"")).toLowerCase().includes(q))
+            results.push(`<div class="list-card"><strong>🔎 Lost & Found: ${escapeHTML(x.item)}</strong><p>${escapeHTML(x.location)}</p></div>`);
+    });
+
+    skills.forEach(x=>{
+        if((x.name+" "+x.teach+" "+x.learn).toLowerCase().includes(q))
+            results.push(`<div class="list-card"><strong>🤝 Skill: ${escapeHTML(x.teach)}</strong><p>${escapeHTML(x.name)}</p></div>`);
+    });
+
+    tasks.forEach(x=>{
+        if(x.task.toLowerCase().includes(q))
+            results.push(`<div class="list-card"><strong>📚 Study Task: ${escapeHTML(x.task)}</strong><p>${escapeHTML(x.date)}</p></div>`);
+    });
+
+    sharing.forEach(x=>{
+        if((x.item+" "+x.type+" "+(x.condition||"")).toLowerCase().includes(q))
+            results.push(`<div class="list-card"><strong>♻️ Sharing: ${escapeHTML(x.item)}</strong><p>${escapeHTML(x.type)}</p></div>`);
+    });
+
+    box.innerHTML=results.length ? results.slice(0,20).join("") : `<div class="list-card"><p>No results found.</p></div>`;
+}
+
+function renderChat(){
+    const box=document.getElementById("chatBox");
+    if(!box) return;
+    box.innerHTML=campusChat.length
+        ? campusChat.map(x=>`<div class="chat-msg ${x.me?"me":""}"><strong>${escapeHTML(x.name)}</strong><br>${escapeHTML(x.text)}</div>`).join("")
+        : `<p>No messages yet. Start the campus chat!</p>`;
+    box.scrollTop=box.scrollHeight;
+}
+
+function sendChat(){
+    const input=document.getElementById("chatInput");
+    const text=input.value.trim();
+    if(!text) return;
+    const name=localStorage.getItem("studentName") || "Student";
+    campusChat.push({name:name,text:text,me:true});
+    campusChat=campusChat.slice(-50);
+    localStorage.setItem("campusChat",JSON.stringify(campusChat));
+    input.value="";
+    renderChat();
+    addNotice("💬 New campus chat message");
+}
+
+function getMyLocation(){
+    const result=document.getElementById("locationResult");
+    if(!navigator.geolocation){
+        result.innerText="❌ Geolocation is not supported by this browser.";
+        return;
+    }
+    result.innerText="📍 Getting your location...";
+    navigator.geolocation.getCurrentPosition(
+        function(pos){
+            result.innerText="📍 Latitude: "+pos.coords.latitude.toFixed(5)+
+                " | Longitude: "+pos.coords.longitude.toFixed(5);
+            addNotice("📍 Location detected");
+        },
+        function(){
+            result.innerText="⚠️ Location permission was not granted.";
+        }
+    );
+}
+
+function runSmartAlerts(){
+    const box=document.getElementById("alertResults");
+    let alerts=[];
+
+    const today=new Date();
+    tasks.forEach(t=>{
+        if(!t.completed){
+            const d=new Date(t.date+"T23:59:59");
+            const days=Math.ceil((d-today)/86400000);
+            if(days>=0 && days<=2){
+                alerts.push("📚 Deadline soon: "+escapeHTML(t.task)+" ("+days+" day(s))");
+            }
+        }
+    });
+
+    let matchCount=0;
+    for(let i=0;i<lostItems.length;i++){
+        for(let j=i+1;j<lostItems.length;j++){
+            const a=lostItems[i],b=lostItems[j];
+            if(a.type!==b.type &&
+              (a.item.toLowerCase().includes(b.item.toLowerCase()) ||
+               b.item.toLowerCase().includes(a.item.toLowerCase()) ||
+               a.location.toLowerCase()===b.location.toLowerCase())){
+                matchCount++;
+            }
+        }
+    }
+    if(matchCount) alerts.push("🧠 "+matchCount+" possible Lost & Found match(es) found.");
+
+    if(!alerts.length) alerts.push("✅ No urgent alerts right now.");
+    box.innerHTML=alerts.map(x=>`<div class="list-card">${x}</div>`).join("");
+    alerts.forEach(x=>addNotice(x.replace(/<[^>]*>/g,"")));
+}
+
+function openAdmin(){
+    document.getElementById("adminLost").innerText=lostItems.length;
+    document.getElementById("adminSkills").innerText=skills.length;
+    document.getElementById("adminTasks").innerText=tasks.length;
+    document.getElementById("adminSharing").innerText=sharing.length;
+    document.getElementById("adminModal").classList.add("active");
+}
+
+function closeAdmin(){
+    document.getElementById("adminModal").classList.remove("active");
+}
+
+function clearAllDemoData(){
+    if(!confirm("Are you sure you want to delete all local demo data?")) return;
+    localStorage.removeItem("lostItems");
+    localStorage.removeItem("skills");
+    localStorage.removeItem("tasks");
+    localStorage.removeItem("sharing");
+    localStorage.removeItem("favourites");
+    localStorage.removeItem("campusChat");
+    localStorage.removeItem("notifications");
+
+    lostItems=[]; skills=[]; tasks=[]; sharing=[]; favourites=[]; campusChat=[]; notifications=[];
+    displayLostItems();
+    displaySkills();
+    displayTasks();
+    displaySharing();
+    updateDashboard();
+    renderChat();
+    renderNotifications();
+    openAdmin();
+    notify("🗑️ All local demo data cleared");
+}
+
+renderNotifications();
+renderChat();
+
+/* Add notification when important actions happen in the original app */
+const originalSaveData=saveData;
+saveData=function(){
+    originalSaveData();
+    const now=Date.now();
+    if(!localStorage.getItem("smartHubFirstSave")){
+        localStorage.setItem("smartHubFirstSave",String(now));
+    }
+};
+
+/* Refresh enhanced UI */
+showFavorites();
+
+</script>
+
+</body>
+</html>
